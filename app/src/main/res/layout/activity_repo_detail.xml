@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="GithubDetailActivityBinding" />
+
+
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/ghost_white">
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/appBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:elevation="@dimen/card_image_view_elevation"
+            app:elevation="@dimen/card_image_view_elevation">
+
+
+            <android.support.design.widget.CollapsingToolbarLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/constraint_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:transitionName="@string/transition_background">
+
+
+                    <include
+                        android:id="@+id/main_toolbar"
+                        layout="@layout/view_toolbar"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <RelativeLayout
+                        android:id="@+id/filter_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:animateLayoutChanges="true"
+                        android:background="@color/colorPrimary"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHeight_default="percent"
+                        app:layout_constraintHeight_percent="0.6"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/main_toolbar" />
+
+
+                </android.support.constraint.ConstraintLayout>
+
+            </android.support.design.widget.CollapsingToolbarLayout>
+
+
+        </android.support.design.widget.AppBarLayout>
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:behavior_overlapTop="68dp"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/card_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin"
+                    android:background="@android:color/white"
+                    android:elevation="@dimen/card_view_elevation"
+                    app:cardBackgroundColor="@android:color/white"
+                    app:cardCornerRadius="@dimen/card_view_corner_radius"
+                    app:cardElevation="@dimen/card_view_elevation"
+                    app:cardUseCompatPadding="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/padding_large">
+
+
+                        <com.an.github.ui.custom.CircleImageView
+                            android:id="@+id/item_profile_img"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:transitionName="@string/transition_image"
+                            android:src="@drawable/ic_placeholder"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHeight_default="percent"
+                            app:layout_constraintHeight_percent="0.3"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintWidth_default="percent"
+                            app:layout_constraintWidth_percent="0.45" />
+
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:transitionName="@string/transition_title"
+                            android:id="@+id/item_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/margin"
+                            android:layout_marginTop="@dimen/margin_large"
+                            android:layout_marginRight="@dimen/margin"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:paddingEnd="@dimen/margin"
+                            android:paddingRight="@dimen/margin"
+                            tools:text="Anita murthy has got to sdsdk"
+                            android:textColor="@color/item_color_title"
+                            android:textSize="@dimen/font_medium"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/item_profile_img" />
+
+
+                        <android.support.v7.widget.AppCompatImageView
+                            android:transitionName="@string/transition_background"
+                            android:id="@+id/item_img_language"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_circle"
+                            android:layout_marginTop="@dimen/margin"
+                            android:layout_marginBottom="@dimen/margin_xsmall"
+                            android:paddingStart="@dimen/margin_small"
+                            android:paddingLeft="@dimen/margin_small"
+                            app:layout_constraintRight_toLeftOf="@+id/item_language"
+                            app:layout_constraintTop_toBottomOf="@+id/item_title"
+                            />
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:transitionName="@string/transition_language"
+                            android:id="@+id/item_language"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_xsmall"
+                            android:layout_marginBottom="@dimen/margin_xsmall"
+                            android:fontFamily="@font/montserrat"
+                            android:gravity="center_vertical"
+                            android:paddingStart="@dimen/margin_small"
+                            android:paddingLeft="@dimen/margin_small"
+                            android:paddingEnd="@dimen/margin_xxlarge"
+                            android:paddingRight="@dimen/margin_xxlarge"
+                            tools:text="Java"
+                            android:textColor="@color/item_color_like"
+                            android:textSize="@dimen/font_xmedium"
+                            app:fontFamily="@font/montserrat"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/item_title" />
+
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/item_stars"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_large"
+                            android:fontFamily="@font/montserrat"
+                            android:gravity="center_vertical"
+                            tools:text="3456"
+                            android:textColor="@color/item_color_stars"
+                            android:textSize="@dimen/font_large"
+                            app:fontFamily="@font/montserrat"
+                            app:layout_constraintHorizontal_chainStyle="spread"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toLeftOf="@+id/line1"
+                            app:layout_constraintTop_toBottomOf="@+id/item_language" />
+
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/item_stars_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat"
+                            android:gravity="center_vertical"
+                            android:text="@string/text_stars"
+                            android:textColor="@color/item_color_star_text"
+                            android:textSize="@dimen/font_small"
+                            app:fontFamily="@font/montserrat"
+                            app:layout_constraintHorizontal_chainStyle="spread"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toLeftOf="@+id/line1"
+                            app:layout_constraintTop_toBottomOf="@+id/item_stars" />
+
+                        <View
+                            android:id="@+id/line1"
+                            android:layout_width="2dp"
+                            android:layout_height="65dp"
+                            android:layout_marginTop="@dimen/margin_small"
+                            android:background="@color/item_color_line"
+                            app:layout_constraintHorizontal_chainStyle="spread"
+                            app:layout_constraintLeft_toRightOf="@+id/item_stars"
+                            app:layout_constraintRight_toLeftOf="@+id/item_watchers"
+                            app:layout_constraintTop_toBottomOf="@+id/item_language" />
+
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/item_watchers"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_large"
+                            android:fontFamily="@font/montserrat"
+                            android:gravity="center_vertical"
+                            tools:text="3456"
+                            android:textColor="@color/item_color_watchers"
+                            android:textSize="@dimen/font_large"
+                            app:fontFamily="@font/montserrat"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_chainStyle="spread"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/item_language" />
+
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/item_watchers_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat"
+                            android:gravity="center_vertical"
+                            android:text="@string/text_watchers"
+                            android:textColor="@color/item_color_star_text"
+                            android:textSize="@dimen/font_small"
+                            app:fontFamily="@font/montserrat"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_chainStyle="spread"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/item_watchers" />
+
+
+                        <View
+                            android:id="@+id/line2"
+                            android:layout_width="2dp"
+                            android:layout_height="65dp"
+                            android:layout_marginTop="@dimen/margin_small"
+                            android:background="@color/item_color_line"
+                            app:layout_constraintHorizontal_chainStyle="spread"
+                            app:layout_constraintLeft_toRightOf="@+id/item_watchers"
+                            app:layout_constraintRight_toLeftOf="@+id/item_forks"
+                            app:layout_constraintTop_toBottomOf="@+id/item_language" />
+
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/item_forks"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_large"
+                            android:fontFamily="@font/montserrat"
+                            android:gravity="center_vertical"
+                            tools:text="3456"
+                            android:textColor="@color/item_color_forks"
+                            android:textSize="@dimen/font_large"
+                            app:fontFamily="@font/montserrat"
+                            app:layout_constraintHorizontal_chainStyle="spread"
+                            app:layout_constraintLeft_toRightOf="@+id/line2"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/item_language" />
+
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/item_forks_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat"
+                            android:gravity="center_vertical"
+                            android:text="@string/text_forks"
+                            android:textColor="@color/item_color_star_text"
+                            android:textSize="@dimen/font_small"
+                            app:fontFamily="@font/montserrat"
+                            app:layout_constraintHorizontal_chainStyle="spread"
+                            app:layout_constraintLeft_toRightOf="@+id/line2"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/item_forks" />
+
+
+                        <View
+                            android:visibility="invisible"
+                            android:id="@+id/line3"
+                            app:barrierAllowsGoneWidgets="true"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="@dimen/margin_xxxlarge"
+                            android:background="@color/item_color_line"
+                            app:layout_constraintHorizontal_chainStyle="spread"
+                            app:layout_constraintTop_toBottomOf="@+id/item_forks_title" />
+
+
+                        <android.support.v7.widget.AppCompatButton
+                            android:id="@+id/btn_share"
+                            style="@style/ShareButtonStyle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/margin_large"
+                            android:layout_marginTop="@dimen/margin_xxxlarge"
+                            android:layout_marginRight="@dimen/margin_large"
+                            android:layout_marginBottom="@dimen/margin_xxxlarge"
+                            android:elevation="@dimen/card_view_elevation"
+                            android:text="@string/btn_share"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/btn_visit"
+                            app:layout_constraintHorizontal_bias="0.5"
+                            app:layout_constraintHorizontal_chainStyle="spread"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/line3" />
+
+
+                        <android.support.v7.widget.AppCompatButton
+                            android:id="@+id/btn_visit"
+                            style="@style/AppCompatButtonStyle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_xxxlarge"
+                            android:layout_marginRight="@dimen/margin_large"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            android:layout_marginBottom="@dimen/margin_xxxlarge"
+                            android:elevation="@dimen/card_view_elevation"
+                            android:text="@string/btn_visit"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.5"
+                            app:layout_constraintHorizontal_chainStyle="spread"
+                            app:layout_constraintStart_toEndOf="@+id/btn_share"
+                            app:layout_constraintTop_toBottomOf="@+id/line3" />
+
+                    </android.support.constraint.ConstraintLayout>
+
+                </android.support.v7.widget.CardView>
+
+            </android.support.constraint.ConstraintLayout>
+
+
+        </android.support.v4.widget.NestedScrollView>
+
+    </android.support.design.widget.CoordinatorLayout>
+
+
+</layout>

@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">Github-Repo</string>
+
+    <string name="item_date" formatted="false">%s at %s</string>
+    <string name="empty_text">No repositories found</string>
+    <string name="text_contributors">Contributors</string>
+    <string name="text_forks">forks</string>
+    <string name="text_watchers">Watchers</string>
+    <string name="text_stars">stars</string>
+    <string name="btn_share">Share</string>
+    <string name="btn_open">Open in Browser</string>
+    <string name="btn_visit">Visit Site</string>
+
+
+    <string name="transition_image">image</string>
+    <string name="transition_title">title</string>
+    <string name="transition_background">background</string>
+    <string name="transition_language">language</string>
+
+
+    <string name="filter_item_1">All</string>
+    <string name="filter_item_2">Java</string>
+    <string name="filter_item_3">Kotlin</string>
+    <string name="filter_item_4">Dart</string>
+
+    <string-array name="list_filters">
+        <item>@string/filter_item_1</item>
+        <item>@string/filter_item_2</item>
+        <item>@string/filter_item_3</item>
+        <item>@string/filter_item_4</item>
+    </string-array>
+</resources>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.activity.PostDetailActivity">
+
+    <item
+        android:orderInCategory="100"
+        android:id="@+id/action_share"
+        android:title="@string/btn_share"
+        android:icon="@null"
+        app:showAsAction="never"/>
+
+    <item
+        android:icon="@null"
+        android:orderInCategory="200"
+        android:id="@+id/action_open"
+        android:title="@string/btn_open"
+        app:showAsAction="never"/>
+
+</menu>

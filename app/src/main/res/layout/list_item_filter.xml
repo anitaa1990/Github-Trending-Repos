@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="FilterItemBinding" />
+
+    <RadioButton
+        android:id="@+id/btn_radio"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_small"
+        android:layout_marginRight="@dimen/margin_small"
+        android:background="@drawable/btn_filter_selector"
+        android:button="@null"
+        android:fontFamily="@font/gt_medium"
+        android:gravity="center"
+        android:paddingStart="@dimen/padding_xxxlarge"
+        android:paddingLeft="@dimen/padding_xxxlarge"
+        android:paddingTop="@dimen/padding"
+        android:paddingEnd="@dimen/padding_xxxlarge"
+        android:paddingRight="@dimen/padding_xxxlarge"
+        android:paddingBottom="@dimen/padding"
+        android:textAllCaps="true"
+        android:textColor="@drawable/btn_filter_text_selector"
+        android:textSize="@dimen/font_small"
+        tools:text="Dart" />
+
+</layout>
