@@ -1,5 +1,5 @@
 [versions]
-agp = "8.7.2"
+agp = "8.7.3"
 kotlin = "2.0.21"
 coreKtx = "1.15.0"
 junit = "4.13.2"
@@ -16,6 +16,7 @@ ksp = "2.0.21-1.0.28"
 pagingVersion = "3.3.5"
 coil = "2.6.0"
 okhttp = "4.12.0"
+room = "2.6.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -44,6 +45,12 @@ hilt-android-testing = { group = "com.google.dagger", name = "hilt-android-testi
 
 ## Paging
 paging = { group = "androidx.paging", name = "paging-runtime", version.ref = "pagingVersion" }
+
+## Room
+room = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
+room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
+room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
+room-paging = { group = "androidx.room", name = "room-paging", version.ref = "room" }
 
 ## Coil
 coil = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }

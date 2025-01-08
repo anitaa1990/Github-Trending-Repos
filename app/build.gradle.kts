@@ -76,6 +76,18 @@ dependencies {
     // paging
     implementation(libs.paging)
 
+    // Room
+    implementation(libs.room)
+    // Kotlin Extensions and Coroutines support for Room
+    implementation(libs.room.ktx)
+    // Paging 3 Integration
+    implementation(libs.room.paging)
+    ksp(libs.room.compiler)
+
     // Coil
     implementation(libs.coil)
+
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
 }
