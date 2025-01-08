@@ -16,7 +16,7 @@
 
         <activity
             android:name=".ui.activity.GithubListActivity"
-            android:label="@string/app_name">
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -24,8 +24,8 @@
         </activity>
 
         <activity
+            android:exported="true"
             android:name=".ui.activity.GithubDetailActivity"
-            android:label="@string/app_name"
             android:configChanges="orientation|screenSize"/>
 
         <meta-data

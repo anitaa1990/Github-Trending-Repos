@@ -10,7 +10,7 @@ class RequestInterceptor : Interceptor {
     @Throws(IOException::class)
     override fun intercept(chain: Interceptor.Chain): Response {
         val originalRequest = chain.request()
-        val originalUrl = originalRequest.url()
+        val originalUrl = originalRequest.url
         val url = originalUrl.newBuilder()
                 .addQueryParameter("q", AppConstants.QUERY_API)
                 .addQueryParameter("per_page", AppConstants.PAGE_MAX_SIZE)

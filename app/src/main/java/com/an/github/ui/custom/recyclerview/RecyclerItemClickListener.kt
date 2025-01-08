@@ -1,10 +1,10 @@
 package com.an.github.ui.custom.recyclerview
 
 import android.content.Context
-import android.support.v7.widget.RecyclerView
 import android.view.GestureDetector
 import android.view.MotionEvent
 import android.view.View
+import androidx.recyclerview.widget.RecyclerView
 
 class RecyclerItemClickListener(context: Context, private val recyclerViewItemClickListener: OnRecyclerViewItemClickListener?) : RecyclerView.OnItemTouchListener {
 
