@@ -94,12 +94,14 @@
                 android:layout_marginBottom="@dimen/margin_small"
                 android:paddingStart="@dimen/margin_small"
                 android:paddingLeft="@dimen/margin_small"
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/item_desc"/>
 
             <android.support.v7.widget.AppCompatTextView
                 android:id="@+id/item_likes"
+                android:visibility="gone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_large"
