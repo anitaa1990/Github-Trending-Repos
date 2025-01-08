@@ -1,46 +1,38 @@
 package com.an.github.data.local.entity
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
-//@Entity
-class GithubEntity(
-                   val id: Long,
+@Entity
+data class GithubEntity(
+    @PrimaryKey(autoGenerate = true)
+    val localId: Long = 0,
 
-                   var page: Long,
+    @SerializedName("id")
+    val remoteId: Long,
 
-                   var totalPages: Long,
+    val name: String,
 
-                   var name: String,
+    @SerializedName("full_name")
+    val fullName: String,
 
-                   @SerializedName("full_name")
-                   var fullName: String,
+    @SerializedName("avatar_url")
+    val avatarUrl: String,
 
-//                   @Embedded
-                   var owner: Owner,
+    @SerializedName("html_url")
+    val htmlUrl: String,
+    val description: String,
 
-                   @SerializedName("html_url")
-                   var htmlUrl: String,
+    @SerializedName("contributors_url")
+    val contributorsUrl: String,
 
-                   var description: String,
+    @SerializedName("created_at")
+    val createdAt: String,
 
-                   @SerializedName("contributors_url")
-                   var contributorsUrl: String,
-
-//                   @TypeConverters(TimestampConverter::class)
-                   @SerializedName("created_at")
-                   var createdAt: String,
-
-                   @SerializedName("stargazers_count")
-                   var starsCount: Long,
-
-                   var watchers: Long,
-
-                   var forks: Long,
-
-                   var language: String?) {
-
-
-    fun isLastPage() : Boolean {
-        return page >= totalPages
-    }
-}
+    @SerializedName("stargazers_count")
+    val starsCount: Long,
+    val language: String,
+    val forks: Long,
+    val watchers: Long
+)
