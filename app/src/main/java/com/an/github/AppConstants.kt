@@ -4,6 +4,8 @@ import java.util.Collections
 import java.util.HashMap
 
 object AppConstants {
+    const val BASE_URL = "https://api.github.com/"
+
     val QUERY_SORT = "stars"
     val QUERY_ORDER = "desc"
     val QUERY_API = "android"
