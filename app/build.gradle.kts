@@ -88,6 +88,9 @@ dependencies {
     // Coil
     implementation(libs.coil)
 
+    // unit test coroutine
+    testImplementation(libs.coroutine.test)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

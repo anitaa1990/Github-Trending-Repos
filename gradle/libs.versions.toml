@@ -12,6 +12,7 @@ navigationFragmentKtx = "2.8.5"
 navigationUiKtx = "2.8.5"
 retrofit = "2.11.0"
 mockServer = "4.9.1"
+testCoroutine = "1.9.0-RC"
 hilt = "2.52"
 ksp = "2.0.21-1.0.28"
 pagingVersion = "3.3.5"
@@ -56,6 +57,9 @@ room-paging = { group = "androidx.room", name = "room-paging", version.ref = "ro
 
 ## Coil
 coil = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
+
+## Library needed for testing coroutines
+coroutine-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "testCoroutine" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
