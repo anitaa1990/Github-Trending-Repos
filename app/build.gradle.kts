@@ -66,6 +66,7 @@ dependencies {
     implementation(libs.retrofit.gson.converter)
     implementation(libs.okhttp)
     implementation(libs.okhttp.logging.interceptor)
+    testImplementation(libs.retrofit.mock)
 
     // Hilt
     implementation(libs.hilt.android)
