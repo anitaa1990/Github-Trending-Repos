@@ -3,7 +3,6 @@ package com.an.github.di.module
 import android.app.Application
 
 import com.an.github.data.remote.api.GithubApiService
-import com.an.github.data.remote.interceptor.RequestInterceptor
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 
