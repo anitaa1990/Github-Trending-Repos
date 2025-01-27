@@ -1,5 +1,6 @@
 package com.an.github.data.repository
 
+import com.an.github.AppConstants.PAGE_SIZE
 import com.an.github.data.local.dao.GithubDao
 import com.an.github.data.local.dao.GithubRemoteKeyDao
 import com.an.github.data.local.entity.GithubEntity
@@ -20,7 +21,7 @@ class GithubRepository @Inject constructor(
     suspend fun fetchRepositories(
         filter: GithubFilter,
         nextPage: Long,
-        perPage: Long
+        perPage: Long = PAGE_SIZE.toLong()
     ): GithubApiResponse {
         return try {
             val response = githubApiService.fetchRepositories(

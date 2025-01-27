@@ -5,3 +5,5 @@ enum class GithubFilter {
 }
 
 fun GithubFilter.api() = this.name.lowercase()
+
+fun GithubFilter.equalTo(filter: GithubFilter?) = this == filter
