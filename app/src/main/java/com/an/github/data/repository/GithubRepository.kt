@@ -1,7 +1,9 @@
 package com.an.github.data.repository
 
 import com.an.github.data.local.dao.GithubDao
+import com.an.github.data.local.dao.GithubRemoteKeyDao
 import com.an.github.data.local.entity.GithubEntity
+import com.an.github.data.local.entity.GithubRemoteKey
 import com.an.github.data.remote.api.GithubApiService
 import com.an.github.data.remote.model.GithubApiResponse
 import com.an.github.data.remote.model.GithubFilter
@@ -11,6 +13,7 @@ import javax.inject.Inject
 
 class GithubRepository @Inject constructor(
     private val githubDao: GithubDao,
+    private val remoteKeyDao: GithubRemoteKeyDao,
     private val githubApiService: GithubApiService
 ) {
 
@@ -41,4 +44,12 @@ class GithubRepository @Inject constructor(
     suspend fun deleteAll() = githubDao.clearAll()
 
     fun getPagingSource() = githubDao.pagingSource()
+
+    suspend fun addRemoteKeys(remoteKeys: List<GithubRemoteKey>) = remoteKeyDao.insertAll(remoteKeys)
+
+    suspend fun getRemoteKeyCreatedTime() = remoteKeyDao.getCreationTime()
+
+    suspend fun getRemoteKeyByGithubId(remoteId: Long) = remoteKeyDao.getRemoteKeyByGithubId(remoteId)
+
+    suspend fun clearRemoteKeys() = remoteKeyDao.clearRemoteKeys()
 }

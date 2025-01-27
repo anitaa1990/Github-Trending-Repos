@@ -5,7 +5,9 @@ import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.an.github.data.local.AppDatabase
 import com.an.github.data.local.dao.GithubDao
+import com.an.github.data.local.dao.GithubRemoteKeyDao
 import com.an.github.data.local.entity.GithubEntity
+import com.an.github.data.local.entity.GithubRemoteKey
 import com.an.github.data.remote.api.GithubApiService
 import junit.framework.TestCase
 import junit.framework.TestCase.assertEquals
@@ -40,7 +42,8 @@ class GithubRepositoryTest: TestCase() {
             AppDatabase::class.java
         ).build()
         val dao: GithubDao = db.githubDao
-        repository = GithubRepository(dao, apiService)
+        val remoteKeyDao: GithubRemoteKeyDao = db.githubKeyDao
+        repository = GithubRepository(dao, remoteKeyDao, apiService)
     }
 
     // Override function closeDb() and annotate it with @After.
@@ -82,6 +85,107 @@ class GithubRepositoryTest: TestCase() {
         // verify all records are deleted
         val dbRepositories = repository.getRepositories()
         assertEquals(0, dbRepositories.size)
+    }
+
+    @Test
+    fun insertRemoteKeysAndVerifyInsertIsSuccessful() = runBlocking {
+        val repositories = expectedRepositories
+
+        // insert
+        val page = 1
+        val prevKey = null
+        val nextKey = page + 1
+        val remoteKeys = repositories.map {
+            GithubRemoteKey(
+                githubId = it.remoteId,
+                prevKey = prevKey,
+                currentPage = page,
+                nextKey = nextKey
+            )
+        }
+
+        repository.addRemoteKeys(remoteKeys)
+
+        // Verify records exist in db
+        for(index in 0 until repositories.size) {
+            val insertedKeys = repository.getRemoteKeyByGithubId(repositories[index].remoteId)
+            assertEquals(remoteKeys[index].githubId, insertedKeys?.githubId)
+            assertEquals(remoteKeys[index].prevKey, insertedKeys?.prevKey)
+            assertEquals(remoteKeys[index].nextKey, insertedKeys?.nextKey)
+            assertEquals(remoteKeys[index].currentPage, insertedKeys?.currentPage)
+        }
+    }
+
+    @Test
+    fun updateRemoteKeysAndVerifyUpdateIsSuccessful() = runBlocking {
+        val repositories = expectedRepositories
+
+        // insert
+        val page = 1
+        val prevKey = null
+        val nextKey = page + 1
+        val remoteKeys = repositories.map {
+            GithubRemoteKey(
+                githubId = it.remoteId,
+                prevKey = prevKey,
+                currentPage = page,
+                nextKey = nextKey
+            )
+        }
+
+        repository.addRemoteKeys(remoteKeys)
+
+        // update
+        val page2 = 2
+        val updatePrevKey = page2 - 1
+        val updatedNextKey = page2 + 1
+        val updatedRemoteKeys = repositories.map {
+            GithubRemoteKey(
+                githubId = it.remoteId,
+                prevKey = updatePrevKey,
+                currentPage = page2,
+                nextKey = updatedNextKey
+            )
+        }
+        repository.addRemoteKeys(updatedRemoteKeys)
+
+        // Verify records are updated in db
+        for(index in 0 until repositories.size) {
+            val updatedKeys = repository.getRemoteKeyByGithubId(repositories[index].remoteId)
+            assertEquals(updatedRemoteKeys[index].githubId, updatedKeys?.githubId)
+            assertEquals(updatedRemoteKeys[index].prevKey, updatedKeys?.prevKey)
+            assertEquals(updatedRemoteKeys[index].nextKey, updatedKeys?.nextKey)
+            assertEquals(updatedRemoteKeys[index].currentPage, updatedKeys?.currentPage)
+        }
+    }
+
+    @Test
+    fun deleteRemoteKeyRecordsFromDbAndVerifyDeleteIsSuccessful() = runBlocking {
+        val repositories = expectedRepositories
+
+        // insert
+        val page = 1
+        val prevKey = null
+        val nextKey = page + 1
+        val remoteKeys = repositories.map {
+            GithubRemoteKey(
+                githubId = it.remoteId,
+                prevKey = prevKey,
+                currentPage = page,
+                nextKey = nextKey
+            )
+        }
+
+        repository.addRemoteKeys(remoteKeys)
+
+        // delete keys from db
+        repository.clearRemoteKeys()
+
+        // verify all records are deleted
+        for(index in 0 until repositories.size) {
+            val keys = repository.getRemoteKeyByGithubId(repositories[index].remoteId)
+            assertNull(keys)
+        }
     }
 
     private fun getRepositories(): List<GithubEntity> {
