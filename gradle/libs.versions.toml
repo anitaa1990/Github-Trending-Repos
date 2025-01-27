@@ -19,6 +19,7 @@ pagingVersion = "3.3.5"
 coil = "2.6.0"
 okhttp = "4.12.0"
 room = "2.6.1"
+mockitoAndroid = "5.7.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -60,6 +61,9 @@ coil = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
 
 ## Library needed for testing coroutines
 coroutine-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "testCoroutine" }
+
+## Mockito
+mockito-android = { group = "org.mockito", name = "mockito-android", version.ref = "mockitoAndroid" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

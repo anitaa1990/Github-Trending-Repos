@@ -1,3 +1,5 @@
+import org.gradle.kotlin.dsl.android
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
@@ -90,6 +92,9 @@ dependencies {
 
     // unit test coroutine
     testImplementation(libs.coroutine.test)
+
+    // Mockito
+    androidTestImplementation(libs.mockito.android)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
