@@ -79,6 +79,9 @@ dependencies {
     // paging
     implementation(libs.paging)
 
+    // DataStore
+    implementation(libs.datastore)
+
     // Room
     implementation(libs.room)
     // Kotlin Extensions and Coroutines support for Room

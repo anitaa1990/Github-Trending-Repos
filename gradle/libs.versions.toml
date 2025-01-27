@@ -20,6 +20,7 @@ coil = "2.6.0"
 okhttp = "4.12.0"
 room = "2.6.1"
 mockitoAndroid = "5.7.0"
+dataStore = "1.1.2"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -58,6 +59,9 @@ room-paging = { group = "androidx.room", name = "room-paging", version.ref = "ro
 
 ## Coil
 coil = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
+
+## Android DataStore
+datastore = { group = "androidx.datastore", name = "datastore-preferences", version.ref = "dataStore" }
 
 ## Library needed for testing coroutines
 coroutine-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "testCoroutine" }
