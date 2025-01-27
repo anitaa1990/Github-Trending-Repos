@@ -8,6 +8,7 @@ import com.an.github.data.local.dao.GithubDao
 import com.an.github.data.local.dao.GithubRemoteKeyDao
 import com.an.github.data.local.entity.GithubEntity
 import com.an.github.data.local.entity.GithubRemoteKey
+import com.an.github.data.local.entity.Owner
 import com.an.github.data.remote.api.GithubApiService
 import junit.framework.TestCase
 import junit.framework.TestCase.assertEquals
@@ -194,7 +195,7 @@ class GithubRepositoryTest: TestCase() {
                 remoteId = 12,
                 name = "flutter",
                 fullName = "",
-                avatarUrl = "",
+                owner = Owner(""),
                 htmlUrl = "",
                 description = "",
                 contributorsUrl = "",
@@ -208,7 +209,7 @@ class GithubRepositoryTest: TestCase() {
                 remoteId = 14,
                 name = "free-programming-books-zh_CN",
                 fullName = "",
-                avatarUrl = "",
+                owner = Owner(""),
                 htmlUrl = "",
                 description = "",
                 contributorsUrl = "",
@@ -222,7 +223,7 @@ class GithubRepositoryTest: TestCase() {
                 remoteId = 15,
                 name = "material-design-icons",
                 fullName = "",
-                avatarUrl = "",
+                owner = Owner(""),
                 htmlUrl = "",
                 description = "",
                 contributorsUrl = "",

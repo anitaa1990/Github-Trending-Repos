@@ -17,8 +17,7 @@ data class GithubEntity(
     @SerializedName("full_name")
     val fullName: String,
 
-    @SerializedName("avatar_url")
-    val avatarUrl: String,
+    val owner: Owner,
 
     @SerializedName("html_url")
     val htmlUrl: String,

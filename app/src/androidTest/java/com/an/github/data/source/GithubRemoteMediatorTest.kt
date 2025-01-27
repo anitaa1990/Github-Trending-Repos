@@ -13,6 +13,7 @@ import com.an.github.data.local.FilterStore
 import com.an.github.data.local.dao.GithubDao
 import com.an.github.data.local.dao.GithubRemoteKeyDao
 import com.an.github.data.local.entity.GithubEntity
+import com.an.github.data.local.entity.Owner
 import com.an.github.data.remote.api.GithubApiService
 import com.an.github.data.remote.model.GithubApiResponse
 import com.an.github.data.remote.model.GithubFilter
@@ -136,7 +137,7 @@ class GithubRemoteMediatorTest: TestCase() {
                 remoteId = 12,
                 name = "flutter",
                 fullName = "",
-                avatarUrl = "",
+                owner = Owner(""),
                 htmlUrl = "",
                 description = "",
                 contributorsUrl = "",
@@ -150,7 +151,7 @@ class GithubRemoteMediatorTest: TestCase() {
                 remoteId = 14,
                 name = "free-programming-books-zh_CN",
                 fullName = "",
-                avatarUrl = "",
+                owner = Owner(""),
                 htmlUrl = "",
                 description = "",
                 contributorsUrl = "",
@@ -164,7 +165,7 @@ class GithubRemoteMediatorTest: TestCase() {
                 remoteId = 15,
                 name = "material-design-icons",
                 fullName = "",
-                avatarUrl = "",
+                owner = Owner(""),
                 htmlUrl = "",
                 description = "",
                 contributorsUrl = "",

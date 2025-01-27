@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Room
 import com.an.github.data.local.AppDatabase
 import com.an.github.data.local.dao.GithubDao
+import com.an.github.data.local.dao.GithubRemoteKeyDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -27,5 +28,10 @@ object GithubDbModule {
     @Provides
     fun provideMovieDao(database: AppDatabase): GithubDao {
         return database.githubDao
+    }
+
+    @Provides
+    fun provideGithubRemoteKeyDao(database: AppDatabase): GithubRemoteKeyDao {
+        return database.githubKeyDao
     }
 }
