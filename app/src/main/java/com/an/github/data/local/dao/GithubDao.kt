@@ -18,7 +18,7 @@ interface GithubDao {
     fun pagingSource(): PagingSource<Int, GithubEntity>
 
     @Query("SELECT * FROM GithubEntity")
-    fun getRepositories(): Flow<List<GithubEntity>>
+    fun getRepositories(): List<GithubEntity>
 
     @Query("SELECT * FROM GithubEntity WHERE remoteId =:remoteId")
     fun getRepository(remoteId: Long): Flow<GithubEntity>

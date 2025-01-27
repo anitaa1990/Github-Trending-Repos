@@ -1,49 +1,44 @@
 package com.an.github.data.repository
 
-import com.an.github.data.NetworkBoundResource
-import com.an.github.data.Resource
 import com.an.github.data.local.dao.GithubDao
 import com.an.github.data.local.entity.GithubEntity
 import com.an.github.data.remote.api.GithubApiService
 import com.an.github.data.remote.model.GithubApiResponse
+import com.an.github.data.remote.model.GithubFilter
+import com.an.github.data.remote.model.api
+import javax.inject.Inject
 
-import javax.inject.Singleton
 
+class GithubRepository @Inject constructor(
+    private val githubDao: GithubDao,
+    private val githubApiService: GithubApiService
+) {
 
-@Singleton
-class GithubRepository(private val githubDao: GithubDao, private val githubApiService: GithubApiService) {
+    suspend fun fetchRepositories(
+        filter: GithubFilter,
+        nextPage: Long,
+        perPage: Long
+    ): GithubApiResponse {
+        return try {
+            val response = githubApiService.fetchRepositories(
+                query = filter.api(),
+                page = nextPage,
+                perPage = perPage
+            )
+            response
+        } catch (e: Exception) {
+            e.printStackTrace()
+            throw Exception(e)
+        }
+    }
 
-//    fun getRepositories(page: Long): Observable<Resource<List<GithubEntity>>> {
-//        return object : NetworkBoundResource<List<GithubEntity>, GithubApiResponse>() {
-//
-//            override fun saveCallResult(item: GithubApiResponse) {
-//                val repositories = item.items
-//                for (githubEntity in repositories) {
-//                    githubEntity.page = page
-//                    githubEntity.totalPages = item.totalCount
-//                }
-//                githubDao.insertRepositories(repositories)
-//            }
-//
-//            override fun shouldFetch(): Boolean {
-//                return true
-//            }
-//
-//            override fun loadFromDb(): Flowable<List<GithubEntity>> {
-//                val repositories = githubDao.getRepositoriesByPage(page)
-//                return Flowable.just(repositories)
-//            }
-//
-//            override fun createCall(): Observable<Resource<GithubApiResponse>> {
-//                return githubApiService.fetchRepositories(QUERY_SORT, QUERY_ORDER, page)
-//                        .flatMap<Resource<GithubApiResponse>> { response ->
-//                            Observable.just(if (response.isSuccessful)
-//                                Resource.success(response.body()!!)
-//                            else
-//                                Resource.error("", GithubApiResponse(0, emptyList())))
-//                        }
-//            }
-//
-//        }.getAsObservable()
-//    }
+    fun getRepositories() = githubDao.getRepositories()
+
+    fun getRepository(remoteId: Long) = githubDao.getRepository(remoteId)
+
+    suspend fun addRepositories(repositories: List<GithubEntity>) = githubDao.insertRepositories(repositories)
+
+    suspend fun deleteAll() = githubDao.clearAll()
+
+    fun getPagingSource() = githubDao.pagingSource()
 }

@@ -1,6 +1,7 @@
 *.iml
 .gradle
 /local.properties
+/.idea/
 /.idea/caches
 /.idea/libraries
 /.idea/modules.xml
@@ -18,3 +19,5 @@
 /.idea/checkstyle-idea.xml
 /.idea/gradle.xml
 /.idea/compiler.xml
+/.idea/androidTestResultsUserPreferences.xml
+/.idea/deploymentTargetSelector.xml

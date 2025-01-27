@@ -6,6 +6,9 @@ import java.util.HashMap
 object AppConstants {
     const val BASE_URL = "https://api.github.com/"
 
+    const val PAGE_SIZE = 20
+    const val PREFETCH_DISTANCE = 10
+
     val QUERY_SORT = "stars"
     val QUERY_ORDER = "desc"
     val QUERY_API = "android"
