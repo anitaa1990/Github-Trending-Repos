@@ -83,55 +83,55 @@ object AppUtils {
 //                    }
 //    }
 
-    fun updateStatusBarColor(activity: Activity,
-                             color: Int) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            activity.window.statusBarColor = color
-        }
-    }
-
-
-    private fun lighten(color: Int, fraction: Double): Int {
-        var red = Color.red(color)
-        var green = Color.green(color)
-        var blue = Color.blue(color)
-        red = lightenColor(red, fraction)
-        green = lightenColor(green, fraction)
-        blue = lightenColor(blue, fraction)
-        val alpha = Color.alpha(color)
-        return Color.argb(alpha, red, green, blue)
-    }
-
-    private fun lightenColor(color: Int, fraction: Double): Int {
-        return Math.min(color + color * fraction, 255.0).toInt()
-    }
-
-    fun updateGradientDrawableColor(context: Context,
-                                    bgColor: Int): Drawable {
-        val drawable = context.resources.getDrawable(R.drawable.ic_circle) as GradientDrawable
-        drawable.setColor(bgColor)
-        return drawable
-    }
-
-    fun updateStateListDrawableColor(stateListDrawable: Drawable,
-                                     bgColor: Int): Drawable {
-        val drawableContainerState = stateListDrawable.constantState as DrawableContainer.DrawableContainerState
-        val children = drawableContainerState.children
-        val selectedDrawable = children[0] as GradientDrawable
-        val unselectedDrawable = children[1] as GradientDrawable
-        selectedDrawable.setColor(AppUtils.lighten(bgColor, 0.1))
-        unselectedDrawable.setColor(bgColor)
-        return stateListDrawable
-    }
-
-    fun updateStateListDrawableStrokeColor(stateListDrawable: Drawable,
-                                           bgColor: Int): Drawable {
-        val drawableContainerState = stateListDrawable.constantState as DrawableContainer.DrawableContainerState
-        val children = drawableContainerState.children
-        val selectedDrawable = children[0] as GradientDrawable
-        val unselectedDrawable = children[1] as GradientDrawable
-        selectedDrawable.setColor(AppUtils.lighten(bgColor, 0.1))
-        unselectedDrawable.setStroke(1, bgColor)
-        return stateListDrawable
-    }
+//    fun updateStatusBarColor(activity: Activity,
+//                             color: Int) {
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//            activity.window.statusBarColor = color
+//        }
+//    }
+//
+//
+//    private fun lighten(color: Int, fraction: Double): Int {
+//        var red = Color.red(color)
+//        var green = Color.green(color)
+//        var blue = Color.blue(color)
+//        red = lightenColor(red, fraction)
+//        green = lightenColor(green, fraction)
+//        blue = lightenColor(blue, fraction)
+//        val alpha = Color.alpha(color)
+//        return Color.argb(alpha, red, green, blue)
+//    }
+//
+//    private fun lightenColor(color: Int, fraction: Double): Int {
+//        return Math.min(color + color * fraction, 255.0).toInt()
+//    }
+//
+//    fun updateGradientDrawableColor(context: Context,
+//                                    bgColor: Int): Drawable {
+//        val drawable = context.resources.getDrawable(R.drawable.ic_circle) as GradientDrawable
+//        drawable.setColor(bgColor)
+//        return drawable
+//    }
+//
+//    fun updateStateListDrawableColor(stateListDrawable: Drawable,
+//                                     bgColor: Int): Drawable {
+//        val drawableContainerState = stateListDrawable.constantState as DrawableContainer.DrawableContainerState
+//        val children = drawableContainerState.children
+//        val selectedDrawable = children[0] as GradientDrawable
+//        val unselectedDrawable = children[1] as GradientDrawable
+//        selectedDrawable.setColor(AppUtils.lighten(bgColor, 0.1))
+//        unselectedDrawable.setColor(bgColor)
+//        return stateListDrawable
+//    }
+//
+//    fun updateStateListDrawableStrokeColor(stateListDrawable: Drawable,
+//                                           bgColor: Int): Drawable {
+//        val drawableContainerState = stateListDrawable.constantState as DrawableContainer.DrawableContainerState
+//        val children = drawableContainerState.children
+//        val selectedDrawable = children[0] as GradientDrawable
+//        val unselectedDrawable = children[1] as GradientDrawable
+//        selectedDrawable.setColor(AppUtils.lighten(bgColor, 0.1))
+//        unselectedDrawable.setStroke(1, bgColor)
+//        return stateListDrawable
+//    }
 }

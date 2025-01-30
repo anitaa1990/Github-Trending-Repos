@@ -26,12 +26,6 @@
         <activity
             android:exported="true"
             android:name=".ui.activity.GithubDetailActivity"
-            android:configChanges="orientation|screenSize"/>
-
-        <meta-data
-            android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts" />
-
-
+            android:configChanges="orientation|screenSize" />
     </application>
 </manifest>

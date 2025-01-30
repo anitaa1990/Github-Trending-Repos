@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">GitHub Trending Repositories</string>
+    <string name="text_empty">No repositories found</string>
+</resources>
